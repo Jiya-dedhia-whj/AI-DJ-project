@@ -6,8 +6,8 @@ rightWristX = 0;
 rightWristY = 0;
 scoreRightWrist = 0;
 scoreLeftWrist = 0;
-songNo1 = 0;
-songNo2 = 0;
+songNo1 = "";
+songNo2 = "";
 
 function preload()
 {
@@ -63,6 +63,9 @@ function draw()
     songNo1 = song1.isPlaying();
     console.log(songNo1);
 
+    songNo2 = song2.isPlaying();
+    console.log(songNo2);
+
     if(scoreLeftWrist > 0.2)
     {
         circle(leftWristX,leftWristY,20);
@@ -70,8 +73,22 @@ function draw()
         if(songNo1 == false)
         {
           song1.play();
-          document.getElementById("song_id").innerHTML = "Song name : Song1"
         }
-        
+        else{
+          document.getElementById("song_id").innerHTML = "Song name : Harry potter theme song"
+        }
+    }
+
+    if(scoreRightWrist > 0.2)
+    {
+        circle(rightWristX,rightWristY,20);
+        song1.stop();
+        if(songNo2 == false)
+        {
+          song2.play();
+        }
+        else{
+          document.getElementById("song_id").innerHTML = "Song name : Peter pan song"
+        }
     }
 }
